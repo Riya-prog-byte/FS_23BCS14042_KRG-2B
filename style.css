@@ -71,10 +71,6 @@ header a:hover {
   text-decoration: underline;
 }
 
-header p a + span {
-  display: none;
-}
-
 section {
   background-color: var(--bg-card);
   padding: 2rem;
@@ -89,7 +85,7 @@ section:hover {
   box-shadow: 0 10px 25px var(--shadow-color);
 }
 
-h3 {
+h2 {
   font-family: var(--font-headings);
   font-size: 1.75rem;
   margin-bottom: 1.5rem;
@@ -106,7 +102,7 @@ li {
   margin-bottom: 0.75rem;
 }
 
-section ul > li > b {
+section ul > li > b, section ul > li > strong {
   font-family: var(--font-headings);
   font-weight: 500;
   font-size: 1.1rem;
@@ -183,7 +179,11 @@ form button:hover {
   background-color: var(--primary-hover);
 }
 
-hr, br {
+hr {
+  display: none;
+}
+
+br {
   display: none;
 }
 
@@ -196,7 +196,7 @@ hr, br {
     padding: 1.5rem;
   }
 
-  h3 {
+  h2 {
     font-size: 1.5rem;
   }
 }
