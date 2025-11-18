@@ -1,0 +1,100 @@
+:root{
+  --bg:#f5f7fb;
+  --card:#ffffff;
+  --primary:#4f46e5;
+  --muted:#6b7280;
+  --accent:#06b6d4;
+  --danger:#ef4444;
+  --radius:12px;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+  background:var(--bg);
+  color:#111827;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+.page{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:32px 16px;
+}
+
+.form-card{
+  width:100%;
+  max-width:420px;
+  margin:auto;
+  background:var(--card);
+  border-radius:10px;
+  box-shadow:0 8px 24px rgba(16,24,40,0.06);
+  padding:22px;
+}
+
+.form-card h1{
+  margin:0 0 6px 0;
+  font-size:1.4rem;
+}
+.form-card .lead{margin:0 0 18px 0;color:var(--muted);font-size:0.95rem}
+
+.register-form{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:10px 12px;
+}
+
+.register-form .row{display:flex;flex-direction:column}
+.register-form label{font-size:0.85rem;margin-bottom:6px;color:var(--muted)}
+.register-form input[type="text"],
+.register-form input[type="email"],
+.register-form input[type="password"],
+.register-form input[type="tel"],
+.register-form input[type="date"],
+.register-form textarea{
+  padding:10px 12px;border-radius:8px;border:1px solid #e6e7ee;background:transparent;font-size:0.95rem;
+}
+.register-form textarea{resize:vertical}
+
+.radios{display:flex;gap:12px;flex-wrap:wrap}
+.radios label{display:flex;gap:6px;align-items:center;font-size:0.9rem;color:var(--muted)}
+
+.checkbox{display:flex;align-items:center;gap:8px}
+.checkbox input{width:16px;height:16px}
+
+.row.half{width:100%}
+.row.full{grid-column:1 / -1}
+
+.actions{display:flex;gap:12px;align-items:center;justify-content:center}
+.btn{background:var(--primary);color:#fff;padding:10px 14px;border-radius:10px;border:0;cursor:pointer;font-weight:600;min-width:140px;transition:transform .18s ease,box-shadow .18s ease,opacity .12s}
+.btn.secondary{background:transparent;color:var(--primary);border:1px solid rgba(79,70,229,0.12)}
+
+/* Hover / focus effect for the primary button */
+.btn:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(79,70,229,0.14)}
+.btn:active{transform:translateY(-1px)}
+.btn:focus{outline:none;box-shadow:0 0 0 4px rgba(99,102,241,0.12)}
+
+/* Focus styles */
+input:focus,textarea:focus,select:focus{outline:none;box-shadow:0 0 0 3px rgba(99,102,241,0.12);border-color:var(--primary)}
+
+/* Responsive layout: two-column on medium+ screens */
+@media (min-width:700px){
+  .register-form{grid-template-columns:repeat(2,1fr);align-items:start}
+  .register-form .full{grid-column:1 / -1}
+  .register-form .half{grid-column:auto}
+  .form-card{padding:32px}
+}
+
+@media (min-width:1100px){
+  .form-card{display:flex;gap:32px;align-items:center}
+  .form-card .register-form{flex:1}
+}
+
+/* Small tweaks */
+.register-form .row label a{color:var(--accent);text-decoration:underline}
+.lead{opacity:0.9}

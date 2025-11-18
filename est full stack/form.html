@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Registration Form</title>
+		<link rel="stylesheet" href="styles.css">
+	</head>
+	<body>
+		<main class="page">
+			<section class="form-card" aria-labelledby="register-heading">
+				<h1 id="register-heading">Create an account</h1>
+				<p class="lead">Enter your name, email and choose a password.</p>
+
+				<form class="register-form" novalidate>
+					<div class="row full">
+						<label for="name">Name</label>
+						<input id="name" name="name" type="text" required placeholder="Your full name">
+					</div>
+
+					<div class="row full">
+						<label for="email">Email</label>
+						<input id="email" name="email" type="email" required placeholder="you@example.com">
+					</div>
+
+					<div class="row full">
+						<label for="password">Password</label>
+						<input id="password" name="password" type="password" minlength="8" required placeholder="At least 8 characters">
+					</div>
+
+					<div class="row actions">
+						<button type="submit" class="btn">Register</button>
+						<button type="reset" class="btn secondary">Reset</button>
+					</div>
+				</form>
+			</section>
+		</main>
+
+		<script>
+			(function(){
+				const form = document.querySelector('.register-form');
+				const pw = document.getElementById('password');
+
+				form.addEventListener('submit', function(e){
+					if(pw.value.length < 8){
+						e.preventDefault();
+						pw.setCustomValidity('Password must be at least 8 characters');
+						pw.reportValidity();
+						return;
+					}
+					pw.setCustomValidity('');
+					// Demo: prevent real submission and show a simple success message
+					e.preventDefault();
+					alert('Registration successful (demo)');
+				});
+			})();
+		</script>
+	</body>
+</html>
